@@ -8,8 +8,8 @@ import { DialogComponent } from './dialog/dialog.component';
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
-  isEmail:boolean=false;
-  radioVal:object={value:''}
+  isEmail: boolean = false;
+  radioVal: object = { value: '' };
   constructor(private dialog: MatDialog) {}
   recentNodeClicked: any;
   flowTree = [{}];
@@ -19,6 +19,7 @@ export class AppComponent {
   topEmployee: any = {
     id: 1,
     name: '+',
+    imageUrl: 'https://images.pexels.com/photos/13973602/pexels-photo-13973602.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load',
     subordinates: [
       // {
       //   // name: 'East Coast Group',
@@ -56,6 +57,7 @@ export class AppComponent {
       id: previousNode.id,
       email: email,
       message: message,
+      
     };
     this.flowTree.push(recentData);
     console.log(recentData);
@@ -72,22 +74,18 @@ export class AppComponent {
     // this.topEmployee.subordinates = [...this.topEmployee.subordinates,previousNode.subordinates];
     // this.topEmployee.subordinates = previousNode.subordinates;
   }
-  whichRadioClicked(value: string){
-
-      if(value =="email"){
-        //email
-        this.isEmail = true;
-        this.recentNodeClicked.subordinates.push(
-          {
-            id: this.recentNodeClicked.id + 1,
-            name: value,
-            subordinates: []
-          }
-        )
-      }
-      else{
-        //sms
-        this.isEmail = false;
-      }
+  whichRadioClicked(value: string) {
+    if (value == 'email') {
+      //email
+      this.isEmail = true;
+      this.recentNodeClicked.subordinates.push({
+        id: this.recentNodeClicked.id + 1,
+        name: value,
+        subordinates: [],
+      });
+    } else {
+      //sms
+      this.isEmail = false;
+    }
   }
 }
