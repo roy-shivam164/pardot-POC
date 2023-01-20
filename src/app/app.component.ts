@@ -72,4 +72,22 @@ export class AppComponent {
     // this.topEmployee.subordinates = [...this.topEmployee.subordinates,previousNode.subordinates];
     // this.topEmployee.subordinates = previousNode.subordinates;
   }
+  whichRadioClicked(value: string){
+
+      if(value =="email"){
+        //email
+        this.isEmail = true;
+        this.recentNodeClicked.subordinates.push(
+          {
+            id: this.recentNodeClicked.id + 1,
+            name: value,
+            subordinates: []
+          }
+        )
+      }
+      else{
+        //sms
+        this.isEmail = false;
+      }
+  }
 }
