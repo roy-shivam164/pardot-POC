@@ -9,7 +9,7 @@ import { DialogComponent } from './dialog/dialog.component';
 })
 export class AppComponent {
   isEmail: boolean = false;
-  radioVal: object = { value: '' };
+  radioVal = { value: '' };
   constructor(private dialog: MatDialog) {}
   recentNodeClicked: any;
   flowTree = [{}];
